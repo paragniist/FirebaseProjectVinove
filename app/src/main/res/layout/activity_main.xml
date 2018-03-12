@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
@@ -14,16 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
         android:layout_marginTop="32dp">
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/editTextUserName_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:hint="@string/enter_user_name"
+            android:hint="@string/enter_a_username"
             android:inputType="textEmailAddress" />
 
     </android.support.design.widget.TextInputLayout>
@@ -35,8 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/username_TextInputLayout"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
         android:layout_marginTop="32dp"
         app:passwordToggleEnabled="true">
 
@@ -44,7 +40,6 @@
             android:id="@+id/editTextPassword_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:hint="@string/enter_password"
             android:inputType="textPassword" />
 
@@ -81,32 +76,34 @@
            android:text="Register" />
    -->
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/raised_btn"
+        android:id="@+id/login_btn"
         style="@style/RaisedButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/regbtn"
-        android:layout_alignBottom="@+id/regbtn"
-        android:layout_alignLeft="@+id/password_TextInputLayout"
-        android:layout_alignStart="@+id/password_TextInputLayout"
-        android:layout_marginLeft="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_above="@+id/reg_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="19dp"
+        android:background="@color/colorPrimary"
         android:onClick="login"
         android:text="@string/login" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/regbtn"
+        android:id="@+id/reg_btn"
         style="@style/RaisedButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/password_TextInputLayout"
-        android:layout_alignRight="@+id/password_TextInputLayout"
-        android:layout_below="@+id/password_TextInputLayout"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
-        android:layout_marginTop="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"
+        android:background="@color/colorPrimary"
+
         android:onClick="register"
         android:text="@string/register" />
 
 
 </RelativeLayout>
+
+
+

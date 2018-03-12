@@ -1,14 +1,9 @@
 package com.example.vinove.firebaseauth;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,9 +13,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-
-import model.User;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextUserName;
@@ -44,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     Toast.makeText(getApplicationContext(),
-                            "LoggedIn As :" + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            "Welcome Mr. : " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
 
                 } else {
@@ -76,8 +68,14 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Authentication Failed", Toast.LENGTH_LONG).show();
                             } else {
 
-                                Intent intent = new Intent(getBaseContext(), ChatActivity.class);
+                               /* Intent intent = new Intent(getBaseContext(), ChatActivity.class);
+                                startActivity(intent);*/
+
+
+                                Intent intent = new Intent(getBaseContext(), AfterLogin.class);
                                 startActivity(intent);
+
+
                             }
                         }
                     });
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
             if ((editTextPassword.getText().toString().length() == 0)) {
                 editTextPassword.setError("Password required");
-                editTextUserName.requestFocus();
+                editTextPassword.requestFocus();
             } else {
 
                 mAuth.createUserWithEmailAndPassword(editTextUserName.getText().toString(), editTextPassword.getText().toString())
@@ -112,13 +110,13 @@ public class MainActivity extends AppCompatActivity {
                                             "Authentication Failed", Toast.LENGTH_SHORT).show();
 
                                 } else {
-/*
-                                    Toast.makeText(getApplicationContext(),
-                                            "Authentication Success", Toast.LENGTH_SHORT).show();
-                               */
 
-                                    UserNameDialogFragment dialog = new UserNameDialogFragment();
-                                    dialog.show(getFragmentManager(), null);
+                                    Toast.makeText(getApplicationContext(),
+                                            "Registered!!.. Kindly Logged In", Toast.LENGTH_LONG).show();
+
+
+                                   /* UserNameDialogFragment dialog = new UserNameDialogFragment();
+                                    dialog.show(getFragmentManager(), null);*/
 
                                 }
 
@@ -126,6 +124,9 @@ public class MainActivity extends AppCompatActivity {
                         });
             }
         }
+
+
+
     }
 
     @Override
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public static class UserNameDialogFragment extends DialogFragment {
+/*    public static class UserNameDialogFragment extends DialogFragment {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -164,28 +165,28 @@ public class MainActivity extends AppCompatActivity {
 
 //                            https://fir-auth-2d438.firebaseio.com/fir-auth-2d438/<--
 // -->>users/0JNvDnkN5mNgIZTR0j2KPKAUgAH2/profile/username
-/**
- * FirebaseDatabase.getInstance()
- * above code grabbing below url
- * https://fir-auth-2d438.firebaseio.com/fir-auth-2d438/
- *
- *Note: And in Firebase, if the path doesn't exist it will create it(like mongoDB)
- */
+*//**
+     * FirebaseDatabase.getInstance()
+     * above code grabbing below url
+     * https://fir-auth-2d438.firebaseio.com/fir-auth-2d438/
+     *
+     *Note: And in Firebase, if the path doesn't exist it will create it(like mongoDB)
+     *//*
                             EditText userNameField = ((AlertDialog) dialog).findViewById(R.id.username);
                             String username = null;
                             if (userNameField != null) {
                                 username = userNameField.getText().toString();
                             }
 
-                            /**
-                             * by this we get the unique id that user is logged in(just created an account)
-                             */
+                            *//**
+     * by this we get the unique id that user is logged in(just created an account)
+     *//*
                             String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();  // by this we get the reference of current user!!
 
 
-                            /**
-                             * How we create unique user in database
-                             */
+                            *//**
+     * How we create unique user in database
+     *//*
 
                             User aUser = new User(username, "Empty", "Empty");
 
@@ -199,6 +200,6 @@ public class MainActivity extends AppCompatActivity {
 
             return builder.create();
         }
-    }
+    }*/
 }
 

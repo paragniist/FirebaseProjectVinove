@@ -20,6 +20,9 @@
             android:name=".ChatActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AfterLogin" />
+        <activity android:name=".CreateSessionActivity" />
+        <activity android:name=".JoinActivity" />
     </application>
 
 </manifest>
